@@ -50,6 +50,7 @@ export const icons = {
   eye: (<><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z" /><circle cx="12" cy="12" r="3" /></>),
   eyeOff: (<><path d="M10.6 6.1A9.9 9.9 0 0112 6c6.4 0 10 6 10 6a17 17 0 01-3.2 3.9M6.2 6.3A17 17 0 002 12s3.6 6.5 10 6.5a9.8 9.8 0 004.2-.9" /><path d="M9.9 9.9a3 3 0 004.2 4.2" /><path d="M3 3l18 18" /></>),
   close: <path d="M6 6l12 12M18 6L6 18" />,
+  menu: <path d="M4 7h16M4 12h16M4 17h16" />,
   file: (<><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z" /><path d="M14 3v5h5" /><path d="M9 13h6M9 17h4" /></>),
   seal: (<><circle cx="12" cy="10" r="6" /><path d="M9 15.5V21l3-1.6 3 1.6v-5.5" /><path d="M10 10l1.5 1.5L14.5 8.5" /></>),
   grid: (<><rect x="3" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" /><rect x="3" y="14" width="7" height="7" rx="1.5" /><rect x="14" y="14" width="7" height="7" rx="1.5" /></>),

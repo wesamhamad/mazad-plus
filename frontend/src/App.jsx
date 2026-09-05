@@ -47,6 +47,16 @@ export default function App() {
   const [route, setRoute] = useState({ view: "dashboard", param: null });
   const [badges, setBadges] = useState({ auctions: 0, fraud: 0 });
   const [theme, setTheme] = useState(() => localStorage.getItem(THEME_KEY) || "light");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Drawer: closes on Escape, and locks page scroll while open.
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const onKey = (e) => e.key === "Escape" && setMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => { window.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
+  }, [menuOpen]);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -86,6 +96,7 @@ export default function App() {
 
   const go = useCallback((view, param = null) => {
     setRoute({ view, param });
+    setMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
@@ -113,6 +124,10 @@ export default function App() {
 
       <header className="appheader">
         <div className="appheader__row">
+          <button className="appheader__menu" aria-label="القائمة" aria-expanded={menuOpen}
+                  onClick={() => setMenuOpen((v) => !v)}>
+            <Icon path={menuOpen ? icons.close : icons.menu} size={22} strokeWidth={2} />
+          </button>
           <div className="appheader__logo">
             <div className="appheader__mark">+م</div>
             <div>
@@ -126,10 +141,39 @@ export default function App() {
               <Icon path={theme === "dark" ? icons.sun : icons.moon} size={14} />
               {theme === "dark" ? "فاتح" : "داكن"}
             </button>
-            <AccountMenu user={user} onLogout={logout} />
+            <AccountMenu user={user} onLogout={logout} onUserChange={setUser} />
           </div>
         </div>
       </header>
+
+      {/* Mobile drawer — the same navigation, reachable with a thumb. */}
+      {menuOpen && <div className="drawer__backdrop" onClick={() => setMenuOpen(false)} />}
+      <nav className={`drawer${menuOpen ? " drawer--open" : ""}`} aria-hidden={!menuOpen}>
+        <div className="drawer__user">
+          <div className="appheader__avatar">{user.fullName.charAt(0)}</div>
+          <div><b>{user.fullName}</b><span>{user.roleLabel}</span></div>
+        </div>
+        {NAV.map((section) => (
+          <div key={section.group}>
+            <div className="sidenav__group">{section.group}</div>
+            {section.items.map((item) => (
+              <button key={item.key} className={`navitem${route.view === item.key ? " navitem--active" : ""}`}
+                      onClick={() => go(item.key)}>
+                <Icon path={item.icon} />{item.label}
+                {badges[item.key] > 0 && <span className="navitem__count">{badges[item.key]}</span>}
+              </button>
+            ))}
+          </div>
+        ))}
+        <div className="drawer__foot">
+          <button className="navitem" onClick={toggleTheme}>
+            <Icon path={theme === "dark" ? icons.sun : icons.moon} />{theme === "dark" ? "الوضع الفاتح" : "الوضع الداكن"}
+          </button>
+          <button className="navitem" style={{ color: "var(--dga-color-error-600)" }} onClick={logout}>
+            <Icon path={icons.logout} />تسجيل الخروج
+          </button>
+        </div>
+      </nav>
 
       <div className="shell">
         <nav className="sidenav">
@@ -181,6 +225,24 @@ export default function App() {
       </div>
 
       <Footer go={go} />
+
+      {/* Bottom tab bar — the four destinations a buyer actually uses on a phone. */}
+      <nav className="tabbar" aria-label="التنقل السريع">
+        {[
+          ["dashboard", "الرئيسية", icons.dashboard],
+          ["auctions", "المزادات", icons.gavel],
+          ["map", "الخريطة", icons.globe],
+          ["inquiry", "استعلام", icons.shield],
+        ].map(([key, label, icon]) => (
+          <button key={key} className={`tabbar__item${route.view === key ? " is-active" : ""}`} onClick={() => go(key)}>
+            <Icon path={icon} size={20} />
+            <span>{label}</span>
+          </button>
+        ))}
+        <button className={`tabbar__item${menuOpen ? " is-active" : ""}`} onClick={() => setMenuOpen((v) => !v)}>
+          <Icon path={icons.menu} size={20} /><span>المزيد</span>
+        </button>
+      </nav>
     </div>
   );
 }

@@ -674,3 +674,38 @@ a { color: var(--dga-color-primary); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
+
+/* Notification e-mail form inside the account menu */
+.accountmenu__email {
+  display: grid;
+  gap: var(--dga-space-sm);
+  padding: var(--dga-space-md) var(--dga-space-lg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.accountmenu__email > label:first-child {
+  font-size: var(--dga-font-size-xs);
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+.accountmenu__email input[type="email"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--dga-radius-md);
+  background: var(--surface);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 16px;
+  text-align: left;
+}
+.accountmenu__check {
+  display: flex;
+  gap: var(--dga-space-sm);
+  align-items: center;
+  font-size: var(--dga-font-size-xs);
+  color: var(--text-secondary);
+}
+.accountmenu__msg { font-size: var(--dga-font-size-2xs); }
+.accountmenu__msg--ok { color: var(--dga-color-success-700, #1a7f4b); }
+.accountmenu__msg--err { color: var(--dga-color-error-700, #b42318); }

@@ -62,6 +62,10 @@ class User(db.Model):
     organization = db.Column(db.String(120))
     license_no = db.Column(db.String(60))
     phone_masked = db.Column(db.String(20))
+    # Contact e-mail for notifications. Optional and user-supplied after a
+    # Nafath login — identity comes from Nafath, never from an e-mail account.
+    email = db.Column(db.String(160))
+    notify_email = db.Column(db.Boolean, default=False, nullable=False)
     created_at = db.Column(db.DateTime, default=utcnow)
 
     def to_dict(self):
@@ -74,6 +78,8 @@ class User(db.Model):
             "organization": self.organization,
             "licenseNo": self.license_no,
             "phoneMasked": self.phone_masked,
+            "email": self.email,
+            "notifyEmail": bool(self.notify_email),
         }
 
 

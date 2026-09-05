@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
-import { Icon, icons } from "./ui";
+import { api } from "../api";
+import { Button, Icon, icons } from "./ui";
 
 /**
  * قائمة الحساب — account menu in the header.
@@ -9,8 +10,32 @@ import { Icon, icons } from "./ui";
  * to a horizontal strip below 760px and drops its footer, which left the only
  * logout control unreachable on a phone.
  */
-export default function AccountMenu({ user, onLogout }) {
+export default function AccountMenu({ user, onLogout, onUserChange }) {
   const [open, setOpen] = useState(false);
+  const [email, setEmail] = useState(user.email || "");
+  const [notify, setNotify] = useState(!!user.notifyEmail);
+  const [saving, setSaving] = useState(false);
+  const [msg, setMsg] = useState(null);
+
+  useEffect(() => {
+    setEmail(user.email || "");
+    setNotify(!!user.notifyEmail);
+  }, [user.email, user.notifyEmail]);
+
+  const save = async (e) => {
+    e.preventDefault();
+    setSaving(true);
+    setMsg(null);
+    try {
+      const d = await api.updateProfile({ email, notifyEmail: notify });
+      onUserChange?.(d.user);
+      setMsg({ tone: "ok", text: d.user.email ? "تم حفظ بريد الإشعارات" : "تمت إزالة البريد" });
+    } catch (err) {
+      setMsg({ tone: "err", text: err.message });
+    } finally {
+      setSaving(false);
+    }
+  };
   const wrapRef = useRef(null);
   const triggerRef = useRef(null);
 
@@ -65,6 +90,34 @@ export default function AccountMenu({ user, onLogout }) {
               {user.licenseNo && user.licenseNo !== "—" && ` · ${user.licenseNo}`}
             </div>
           </div>
+
+          <form className="accountmenu__email" onSubmit={save}>
+            <label htmlFor="notify-email">بريد الإشعارات</label>
+            <input
+              id="notify-email"
+              type="email"
+              inputMode="email"
+              dir="ltr"
+              placeholder="name@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <label className="accountmenu__check">
+              <input
+                type="checkbox"
+                checked={notify}
+                disabled={!email}
+                onChange={(e) => setNotify(e.target.checked)}
+              />
+              إرسال الإشعارات على هذا البريد
+            </label>
+            {msg && (
+              <span className={`accountmenu__msg accountmenu__msg--${msg.tone}`}>{msg.text}</span>
+            )}
+            <Button size="sm" block type="submit" disabled={saving}>
+              {saving ? "جارٍ الحفظ…" : "حفظ"}
+            </Button>
+          </form>
 
           <button
             className="accountmenu__item accountmenu__item--danger"

@@ -8,6 +8,7 @@ import hashlib
 import json
 import os
 import queue
+import re
 import secrets
 import threading
 import time
@@ -254,6 +255,23 @@ def register_routes(app):
     @app.get("/api/auth/me")
     @login_required
     def me():
+        return jsonify({"user": g.user.to_dict()})
+
+    @app.put("/api/auth/profile")
+    @login_required
+    def update_profile():
+        """Contact preferences only — name, role and ID stay bound to Nafath."""
+        body = request.get_json(silent=True) or {}
+        email = (body.get("email") or "").strip().lower()
+        if email and not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]{2,}", email):
+            return jsonify({"error": "invalid_email",
+                            "message": "صيغة البريد الإلكتروني غير صحيحة"}), 400
+        g.user.email = email or None
+        g.user.notify_email = bool(body.get("notifyEmail")) and bool(email)
+        audit.record(g.user.full_name, "human", "تحديث بريد الإشعارات",
+                     f"{g.user.email or 'بدون بريد'} · الإشعارات {'مفعّلة' if g.user.notify_email else 'متوقفة'}",
+                     entity=f"user:{g.user.id}")
+        db.session.commit()
         return jsonify({"user": g.user.to_dict()})
 
     @app.post("/api/auth/logout")

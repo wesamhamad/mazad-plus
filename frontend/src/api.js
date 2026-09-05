@@ -62,6 +62,7 @@ export const api = {
   nafathVerify: (requestId, selected) =>
     request("/auth/nafath/verify", { method: "POST", body: { requestId, selected } }),
   me: () => request("/auth/me"),
+  updateProfile: (body) => request("/auth/profile", { method: "PUT", body }),
   logout: () => request("/auth/logout", { method: "POST" }),
 
   // data

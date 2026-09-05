@@ -35,13 +35,9 @@ const HIGHLIGHTS = [
 ];
 
 export default function NafathLogin({ onAuthenticated, theme, onToggleTheme }) {
-  const [tab, setTab] = useState("login");
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState("id");
   const [nationalId, setNationalId] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [remember, setRemember] = useState(true);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const [session, setSession] = useState(null);
@@ -153,112 +149,30 @@ export default function NafathLogin({ onAuthenticated, theme, onToggleTheme }) {
 
         <div className="auth__body">
           <div className="auth__form">
-            <div className="auth__tabs" role="tablist">
-              <button
-                role="tab"
-                aria-selected={tab === "login"}
-                className={`auth__tab${tab === "login" ? " auth__tab--active" : ""}`}
-                onClick={() => setTab("login")}
-              >
-                تسجيل الدخول
+            <div className="auth__card">
+              <h2 className="auth__card-title">الدخول إلى مزاد+</h2>
+              <p className="auth__card-sub">
+                الدخول يتم حصراً عبر النفاذ الوطني الموحد — لا كلمات مرور ولا حسابات منفصلة.
+                حسابات وكلاء البيع والمُقيّمين تُفعَّل بعد التحقق من الهوية ومن رخصة فال.
+              </p>
+
+              <button className="auth__nafath" onClick={() => setOpen(true)}>
+                <span className="auth__nafath-mark">نفاذ</span>
+                الدخول عبر النفاذ الوطني الموحد
               </button>
-              <button
-                role="tab"
-                aria-selected={tab === "signup"}
-                className={`auth__tab${tab === "signup" ? " auth__tab--active" : ""}`}
-                onClick={() => setTab("signup")}
+
+              <p
+                style={{
+                  marginTop: "var(--dga-space-lg)",
+                  fontSize: "var(--dga-font-size-2xs)",
+                  color: "var(--text-tertiary)",
+                  textAlign: "center",
+                  lineHeight: 1.7,
+                }}
               >
-                حساب جديد
-              </button>
+                بعد الدخول يمكنك إضافة بريد إلكتروني لتلقي الإشعارات من قائمة الحساب.
+              </p>
             </div>
-
-            {tab === "signup" ? (
-              <div className="auth__card">
-                <Alert tone="info" title="التسجيل يتم عبر النفاذ الوطني الموحد">
-                  حسابات وكلاء البيع والمُقيّمين تُنشأ بعد التحقق من الهوية ومن رخصة فال. في هذا
-                  النموذج التجريبي، الحسابات مُعدّة مسبقاً — استخدم «الدخول عبر نفاذ».
-                </Alert>
-                <div style={{ marginTop: "var(--dga-space-2xl)" }}>
-                  <button className="auth__nafath" onClick={() => setOpen(true)}>
-                    <span className="auth__nafath-mark">نفاذ</span>
-                    الدخول عبر النفاذ الوطني الموحد
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div className="auth__card">
-                <div className="floatfield">
-                  <label className="floatfield__label" htmlFor="auth-id">
-                    البريد الإلكتروني أو رقم الهوية
-                  </label>
-                  <input
-                    id="auth-id"
-                    className="floatfield__input"
-                    autoComplete="username"
-                    placeholder="name@example.com"
-                  />
-                </div>
-
-                <div className="floatfield">
-                  <label className="floatfield__label" htmlFor="auth-pw">
-                    كلمة المرور
-                  </label>
-                  <input
-                    id="auth-pw"
-                    className="floatfield__input"
-                    type={showPassword ? "text" : "password"}
-                    autoComplete="current-password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                  <button
-                    className="floatfield__toggle"
-                    type="button"
-                    aria-label={showPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"}
-                    onClick={() => setShowPassword((v) => !v)}
-                  >
-                    <Icon path={showPassword ? icons.eyeOff : icons.eye} size={17} />
-                  </button>
-                </div>
-
-                <div className="auth__row">
-                  <label className="auth__check">
-                    <input
-                      type="checkbox"
-                      checked={remember}
-                      onChange={(e) => setRemember(e.target.checked)}
-                    />
-                    تذكّرني
-                  </label>
-                  <button className="auth__link" type="button">
-                    نسيت كلمة المرور؟
-                  </button>
-                </div>
-
-                <Button block size="lg" disabled title="غير مفعّل في النموذج التجريبي">
-                  تسجيل الدخول
-                </Button>
-
-                <div className="auth__divider">أو</div>
-
-                <button className="auth__nafath" onClick={() => setOpen(true)}>
-                  <span className="auth__nafath-mark">نفاذ</span>
-                  الدخول عبر النفاذ الوطني الموحد
-                </button>
-
-                <p
-                  style={{
-                    marginTop: "var(--dga-space-lg)",
-                    fontSize: "var(--dga-font-size-2xs)",
-                    color: "var(--text-tertiary)",
-                    textAlign: "center",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  الدخول بكلمة المرور غير مفعّل في هذا النموذج — المسار المعتمد هو نفاذ.
-                </p>
-              </div>
-            )}
           </div>
         </div>
 

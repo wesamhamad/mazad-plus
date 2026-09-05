@@ -393,3 +393,16 @@
   .auth__aside { display: none; }
   .auth__main { max-width: 560px; margin: 0 auto; width: 100%; }
 }
+
+/* Nafath-only sign-in card (no password / signup paths) */
+.auth__card-title {
+  margin: 0 0 var(--dga-space-sm);
+  font-size: var(--dga-font-size-xl);
+  font-weight: 700;
+}
+.auth__card-sub {
+  margin: 0 0 var(--dga-space-2xl);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: var(--dga-font-size-sm);
+}

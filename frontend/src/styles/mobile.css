@@ -1,0 +1,120 @@
+/* ==========================================================================
+   الجوال — drawer, bottom tab bar, compact header, touch targets.
+   Desktop keeps the sidebar; everything here activates ≤ 900px.
+   ========================================================================== */
+.appheader__menu { display: none; }
+.drawer, .drawer__backdrop, .tabbar { display: none; }
+
+@media (max-width: 900px) {
+  /* --- header: compact, hamburger on the start side --- */
+  .appheader__row { padding: 10px 14px; gap: var(--dga-space-md); flex-wrap: nowrap; }
+  .appheader__menu {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px; border: none; border-radius: var(--dga-radius-md);
+    background: rgba(255,255,255,.12); color: #fff; flex: none;
+  }
+  .appheader__mark { width: 34px; height: 34px; font-size: var(--dga-font-size-sm); }
+  .appheader__name { font-size: var(--dga-font-size-md); }
+  .appheader__tagline { display: none; }
+  .appheader__right { gap: var(--dga-space-md); }
+  .appheader__ghost { display: none; }              /* theme toggle lives in the drawer */
+  .accountmenu__trigger .appheader__who { display: none; }
+  .accountmenu__caret { display: none; }
+
+  /* --- no sidebar strip; the shell is a single column --- */
+  .shell { flex-direction: column; min-height: auto; }
+  .sidenav { display: none; }
+  .content { padding: var(--dga-space-xl) var(--dga-space-lg) calc(72px + env(safe-area-inset-bottom)); }
+
+  /* --- drawer --- */
+  .drawer__backdrop { display: block; position: fixed; inset: 0; z-index: 1150; background: rgba(9,42,30,.55); backdrop-filter: blur(2px); }
+  .drawer {
+    display: flex; flex-direction: column; gap: 2px;
+    position: fixed; top: 0; bottom: 0; inset-inline-start: 0; width: min(84vw, 320px); z-index: 1160;
+    background: var(--surface); padding: var(--dga-space-xl) var(--dga-space-lg) calc(var(--dga-space-xl) + env(safe-area-inset-bottom));
+    overflow-y: auto; box-shadow: var(--dga-shadow-lg);
+    transform: translateX(100%); transition: transform 220ms cubic-bezier(.2,.8,.3,1); visibility: hidden;
+  }
+  [dir="ltr"] .drawer { transform: translateX(-100%); }
+  .drawer--open { transform: none; visibility: visible; }
+  .drawer .navitem { min-height: 46px; font-size: var(--dga-font-size-md); }
+  .drawer__user { display: flex; align-items: center; gap: var(--dga-space-lg); padding: var(--dga-space-md) var(--dga-space-lg) var(--dga-space-xl); border-bottom: 1px solid var(--border); margin-bottom: var(--dga-space-md); }
+  .drawer__user b { display: block; font-size: var(--dga-font-size-sm); }
+  .drawer__user span { font-size: var(--dga-font-size-xs); color: var(--text-tertiary); }
+  .drawer__foot { margin-top: auto; padding-top: var(--dga-space-lg); border-top: 1px solid var(--border); }
+
+  /* --- bottom tab bar --- */
+  .tabbar {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    position: fixed; bottom: 0; inset-inline: 0; z-index: 1100;
+    background: var(--surface); border-top: 1px solid var(--border);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .tabbar__item {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+    min-height: 58px; border: none; background: none; color: var(--text-tertiary);
+    font-size: 11px; font-weight: var(--dga-font-weight-medium);
+  }
+  .tabbar__item.is-active { color: var(--dga-color-primary); }
+  .footer { padding-bottom: 8px; }
+
+  /* --- page chrome --- */
+  .pagehead { flex-direction: column; align-items: stretch; gap: var(--dga-space-md); margin-bottom: var(--dga-space-xl); }
+  .pagehead h1 { font-size: var(--dga-font-size-lg); }
+  .pagehead > .row, .pagehead > div > .row { flex-wrap: wrap; }
+  .grid--4 { grid-template-columns: 1fr 1fr; }
+  .grid--3, .grid--2, .grid--split, .vm__hero { grid-template-columns: 1fr; }
+  .stat__value { font-size: 1.35rem; }
+  .card__head { padding: var(--dga-space-lg); }
+  .card__body { padding: var(--dga-space-lg); }
+  .table th, .table td { padding: 10px 12px; }
+  .table-scroll { -webkit-overflow-scrolling: touch; }
+
+  /* --- controls: thumb-sized, no iOS zoom --- */
+  .btn { min-height: 44px; }
+  .btn--sm { min-height: 40px; }
+  .input, .floatfield__input, select.input { font-size: 16px; min-height: 44px; }
+  .row.row--wrap > .btn, .citytabs > .btn { flex: 0 0 auto; }
+  .kv { grid-template-columns: 1fr; gap: 2px 0; }
+  .kv dt { font-size: var(--dga-font-size-2xs); color: var(--text-tertiary); }
+  .kv dd { text-align: right; margin-bottom: var(--dga-space-md); }
+
+  /* --- map --- */
+  .mapstage__bar { gap: var(--dga-space-md); }
+  .mapstage__bar .citytabs { width: 100%; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; }
+  .mapfilters { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: var(--dga-space-md); margin: 0; }
+  .mapfilters .input { width: 100%; min-width: 0; }
+  .mapwrap--leaflet { height: 60vh; }
+  .mapside { max-height: 320px; }
+  .mapstage--full { padding: var(--dga-space-md); padding-bottom: calc(var(--dga-space-md) + env(safe-area-inset-bottom)); }
+  .mapstage--full .mapstage__body { grid-template-columns: 1fr; grid-template-rows: 1fr 200px; }
+  .mapstage--full .mapside { max-height: 200px; }
+  .maplegend { font-size: 10px; gap: var(--dga-space-md); padding: 5px 8px; }
+
+  /* --- disclosure / compare / gallery --- */
+  .disc__verdict { flex-wrap: wrap; }
+  .disc__counts { margin-inline-start: 0; width: 100%; justify-content: flex-start; }
+  .cmp th:first-child, .cmp td:first-child { position: sticky; inset-inline-start: 0; background: var(--surface); z-index: 1; min-width: 120px; }
+  .cmp th { min-width: 150px; }
+  .gallery__main { height: 200px; }
+  .lightbox { padding: 12px; }
+  .plan__grid { grid-template-columns: 1fr; }
+
+  /* --- Nafath / login --- */
+  .auth__main { padding: var(--dga-space-xl) var(--dga-space-lg); }
+  .auth__tabs { gap: var(--dga-space-xl); }
+  .nfx__body { padding: var(--dga-space-xl) var(--dga-space-lg); }
+}
+
+@media (max-width: 480px) {
+  .grid--4 { grid-template-columns: 1fr; }
+  .govbar__row { font-size: 11px; }
+  .govbar__text { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+}
+
+/* Grid/flex children must be allowed to shrink — otherwise one long line
+   (a title, a number row) widens the card past the viewport. */
+.grid > *, .stack > *, .bidrow > *, .card { min-width: 0; }
+.bidrow { flex-wrap: wrap; }
+.bidrow > div:last-child { text-align: right !important; }
+.card { overflow: hidden; }
