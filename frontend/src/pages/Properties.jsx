@@ -68,8 +68,8 @@ export default function Properties({ go }) {
             </thead>
             <tbody>
               {rows.map((p) => {
-                const required = p.documents.filter((d) => d.required);
-                const done = required.filter((d) => d.present).length;
+                const required = { length: p.docsRequired };
+                const done = p.docsPresent;
                 return (
                   <tr key={p.ref}>
                     <td>

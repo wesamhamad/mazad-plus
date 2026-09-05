@@ -4,6 +4,7 @@ Mazad+ — REST API.
 
 Run:  python app.py      (serves on http://127.0.0.1:5001)
 """
+import gzip
 import hashlib
 import json
 import os
@@ -18,6 +19,7 @@ from datetime import datetime, timedelta, timezone
 from functools import wraps
 
 from flask import Flask, Response, g, jsonify, request, send_from_directory
+from sqlalchemy.orm import selectinload
 from flask_cors import CORS
 
 from models import (Auction, AuditLog, AuthRequest, Bid, Deposit, Document,
@@ -146,6 +148,28 @@ def ip_fingerprint():
 # Routes
 # ---------------------------------------------------------------------------
 def register_routes(app):
+
+    # -- ضغط الاستجابات وذاكرة التخزين -------------------------------------
+    @app.after_request
+    def compress_and_cache(resp):
+        """Gzip JSON/text bodies and let browsers cache hashed build assets.
+
+        The list endpoints run to several megabytes of JSON; over a tunnel to a
+        phone that is the whole load time, and JSON gzips roughly 10:1.
+        """
+        if request.path.startswith("/assets/"):
+            resp.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+        ctype = resp.mimetype or ""
+        if (resp.status_code == 200 and not resp.direct_passthrough
+                and "gzip" in request.headers.get("Accept-Encoding", "")
+                and (ctype.startswith("text/") or ctype in ("application/json", "application/javascript"))
+                and "Content-Encoding" not in resp.headers):
+            data = resp.get_data()
+            if len(data) > 1024:
+                resp.set_data(gzip.compress(data, compresslevel=5))
+                resp.headers["Content-Encoding"] = "gzip"
+                resp.headers["Vary"] = "Accept-Encoding"
+        return resp
 
     # -- الواجهة المبنية ----------------------------------------------------
     @app.get("/", defaults={"path": ""})
@@ -354,14 +378,18 @@ def register_routes(app):
     @login_required
     def list_properties():
         threshold = setting("readiness_threshold", 70)
-        props = Property.query.order_by(Property.ref).all()
-        return jsonify({
-            "threshold": threshold,
-            "properties": [
-                {**p.to_dict(), "eligible": p.readiness_score >= threshold}
-                for p in props
-            ],
-        })
+        props = (Property.query.options(selectinload(Property.documents))
+                 .order_by(Property.ref).all())
+        # Table rows need document *counts*, not the documents — the full
+        # payload was 5 MB for 1,600 assets.
+        rows = []
+        for p in props:
+            required = [d for d in p.documents if d.required]
+            rows.append({**p.to_dict(with_docs=False),
+                         "eligible": p.readiness_score >= threshold,
+                         "docsRequired": len(required),
+                         "docsPresent": sum(1 for d in required if d.present)})
+        return jsonify({"threshold": threshold, "properties": rows})
 
     @app.get("/api/properties/<ref>")
     @login_required
@@ -461,23 +489,35 @@ def register_routes(app):
         return jsonify({"property": p.to_dict()})
 
     # -- Auctions -----------------------------------------------------------
+    _list_cache = {}
+
     @app.get("/api/auctions")
     @login_required
     def list_auctions():
-        status = request.args.get("status")
-        q = Auction.query
-        if status and status != "all":
+        status = request.args.get("status") or "all"
+        # The auctions page polls every 8 s; a 4 s cache means at most one
+        # rebuild per poll cycle instead of one per client.
+        hit = _list_cache.get(status)
+        if hit and time.time() - hit[0] < 4:
+            return Response(hit[1], mimetype="application/json")
+        q = Auction.query.options(
+            selectinload(Auction.bids),
+            selectinload(Auction.property).selectinload(Property.photos),
+        )
+        if status != "all":
             q = q.filter_by(status=status)
         auctions = q.all()
         order = {"live": 0, "upcoming": 1, "blocked": 2, "draft": 3, "closed": 4}
         auctions.sort(key=lambda a: (order.get(a.status, 9), a.ends_at or utcnow()))
-        counts = {}
-        for a in Auction.query.all():
-            counts[a.status] = counts.get(a.status, 0) + 1
+        counts = {st: n for st, n in
+                  db.session.query(Auction.status, db.func.count()).group_by(Auction.status)}
         counts["all"] = sum(counts.values())
         # List payload: cards need the property summary, not its documents and
         # photo list — with 1,600+ auctions that difference is ~5 MB per load.
-        return jsonify({"auctions": [_slim_auction(a) for a in auctions], "counts": counts})
+        body = json.dumps({"auctions": [_slim_auction(a) for a in auctions], "counts": counts},
+                          ensure_ascii=False)
+        _list_cache[status] = (time.time(), body)
+        return Response(body, mimetype="application/json")
 
     @app.get("/api/auctions/<code>")
     @login_required
