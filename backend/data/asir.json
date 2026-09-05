@@ -1,0 +1,66 @@
+{
+  "region": "عسير",
+  "generated": "2026-09-05",
+  "caveat": "أرقام رغدان وسيط سعر المتر لكل أنواع العقار مجتمعة (أرض + مبنى) — لا تُقدَّم كأسعار أراضٍ صافية. كل الإحداثيات تقديرية.",
+  "cities": [
+    {"city":"أبها","center":{"lat":18.2164,"lng":42.5053},"city_median_sar_sqm":1591,"city_residential_median_sar_sqm":1411,"total_transactions":18845,
+     "districts":[
+      {"name":"البصرة","lat":18.245,"lng":42.535,"land_sar_sqm":2926,"transactions":85,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/أبها"},
+      {"name":"سر لعسان","lat":18.190,"lng":42.550,"land_sar_sqm":2825,"transactions":137,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/أبها"},
+      {"name":"المنسك","lat":18.195,"lng":42.490,"land_sar_sqm":2811,"transactions":112,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/أبها/المنسك"},
+      {"name":"وادي الشق","lat":18.255,"lng":42.480,"land_sar_sqm":2627,"transactions":61,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/أبها"},
+      {"name":"سر الأب","lat":18.180,"lng":42.530,"land_sar_sqm":2566,"transactions":155,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/أبها"},
+      {"name":"المروج","lat":18.240,"lng":42.465,"land_sar_sqm":2539,"transactions":723,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/أبها/المروج","note":"رتبة 17 من 140 · +10.7% نمو مركب 2021–2025"},
+      {"name":"الربوة","lat":18.205,"lng":42.470,"land_sar_sqm":2411,"transactions":137,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/أبها/الربوة"},
+      {"name":"النصب","lat":18.225,"lng":42.520,"land_sar_sqm":2264,"transactions":7,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/أبها/النصب","note":"عينة صغيرة — 7 صفقات"},
+      {"name":"الوردتين","lat":18.200,"lng":42.540,"land_sar_sqm":2200,"transactions":17,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/أبها/الوردتين","note":"عينة صغيرة"},
+      {"name":"شمسان","lat":18.230,"lng":42.500,"land_sar_sqm":1710,"transactions":57,"tier":"متوسط","confidence":"measured","source":"raghdan.sa/ar/market/أبها/شمسان"},
+      {"name":"الخالدية","lat":18.210,"lng":42.515,"land_sar_sqm":1702,"transactions":24,"tier":"متوسط","confidence":"measured","source":"raghdan.sa/ar/market/أبها/الخالدية","note":"عينة صغيرة"},
+      {"name":"السد","lat":18.208,"lng":42.535,"land_sar_sqm":1000,"transactions":5,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/أبها/السد","note":"عينة صغيرة — 5 صفقات"},
+      {"name":"السوسن","lat":18.260,"lng":42.550,"land_sar_sqm":180,"transactions":358,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/أبها"},
+      {"name":"مربة","lat":18.270,"lng":42.440,"land_sar_sqm":163,"transactions":165,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/أبها"}
+     ]},
+    {"city":"خميس مشيط","center":{"lat":18.300,"lng":42.730},"city_median_sar_sqm":1349,"city_residential_median_sar_sqm":1369,"total_transactions":18323,
+     "districts":[
+      {"name":"مخطط شرق ذهبان","lat":18.330,"lng":42.770,"land_sar_sqm":3431,"transactions":97,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/خميس مشيط"},
+      {"name":"اليرموك","lat":18.315,"lng":42.745,"land_sar_sqm":3067,"transactions":673,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/خميس مشيط"},
+      {"name":"الورود","lat":18.308,"lng":42.760,"land_sar_sqm":2466,"transactions":110,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/خميس مشيط"},
+      {"name":"المنصورة","lat":18.295,"lng":42.755,"land_sar_sqm":2331,"transactions":406,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/خميس مشيط"},
+      {"name":"الظرفة","lat":18.285,"lng":42.720,"land_sar_sqm":2123,"transactions":1192,"tier":"متوسط","confidence":"measured","source":"raghdan.sa/ar/market/خميس مشيط"},
+      {"name":"الشرف","lat":18.310,"lng":42.710,"land_sar_sqm":2063,"transactions":773,"tier":"متوسط","confidence":"measured","source":"raghdan.sa/ar/market/خميس مشيط"},
+      {"name":"قبر الحصان","lat":18.270,"lng":42.740,"land_sar_sqm":822,"transactions":521,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/خميس مشيط"},
+      {"name":"الواحة","lat":18.305,"lng":42.700,"land_sar_sqm":808,"transactions":93,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/خميس مشيط/الواحة"},
+      {"name":"النور","lat":18.320,"lng":42.695,"land_sar_sqm":792,"transactions":681,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/خميس مشيط"},
+      {"name":"شمال الخميس (ج)","lat":18.350,"lng":42.735,"land_sar_sqm":333,"transactions":717,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/خميس مشيط"},
+      {"name":"شمال الخميس (ب)","lat":18.345,"lng":42.725,"land_sar_sqm":317,"transactions":215,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/خميس مشيط"},
+      {"name":"الحدود","lat":18.360,"lng":42.700,"land_sar_sqm":294,"transactions":132,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/خميس مشيط"},
+      {"name":"تندحة","lat":18.250,"lng":42.800,"land_sar_sqm":187,"transactions":26,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/خميس مشيط/تندحة"}
+     ]}
+  ],
+  "indicators": [
+    {"key":"price_index","label":"الرقم القياسي لأسعار العقارات — عسير","value":"88.5 نقطة","period":"الربع الأول 2026","confidence":"measured","source":"الهيئة العامة للإحصاء عبر صحيفة أملاك"},
+    {"key":"yoy_change","label":"التغيّر السنوي — عسير","value":"+1.1% (خالفت الاتجاه الوطني −1.6%)","period":"ر١ 2026","confidence":"measured","source":"صحيفة أملاك"},
+    {"key":"abha_median","label":"وسيط سعر المتر — أبها","value":"1,591 ر.س/م² (سكني 1,411)","period":"2026","confidence":"measured","source":"رغدان — بيانات وزارة العدل"},
+    {"key":"khamis_median","label":"وسيط سعر المتر — خميس مشيط","value":"1,349 ر.س/م² (سكني 1,369)","period":"حتى ر٢ 2026","confidence":"measured","source":"رغدان — بيانات وزارة العدل"},
+    {"key":"tourism","label":"أثر التطوير السياحي","value":"استراتيجية عسير 50 مليار ر.س · السودة ~3 مليار دولار · 2,700 غرفة فندقية · مستهدف 2 مليون زائر بحلول 2033","period":"2021–2033","confidence":"measured (الاستثمار) · غير مُقاس (الأثر السعري)","source":"صندوق الاستثمارات العامة — السودة للتطوير"}
+  ],
+  "sources": [
+    {"name":"رغدان — سوق أبها وخميس مشيط (بيانات وزارة العدل)","url":"https://raghdan.sa/ar/market/"},
+    {"name":"صحيفة أملاك — أسعار العقارات ر١ 2026 (مؤشر عسير 88.5)","url":"https://amlak.net.sa/103820/"},
+    {"name":"صندوق الاستثمارات العامة — السودة للتطوير","url":"https://www.pif.gov.sa/en/our-investments/our-portfolio/soudah-development/"},
+    {"name":"الهيئة العامة للعقار — منصة المؤشرات العقارية","url":"https://rei.rega.gov.sa/en"},
+    {"name":"وزارة العدل — البورصة العقارية","url":"https://srem.moj.gov.sa/transactions-info"}
+  ],
+  "gaps": [
+    "كل الإحداثيات تقديرية لا مُرجعة جغرافياً — لا مصدر رسمي لحدود/مراكز أحياء أبها وخميس مشيط.",
+    "سعر متر البناء (built) صفر التوفر في كل أحياء المدينتين — رغدان ينشر وسيطاً مخلوطاً لا فصلاً بين أرض ومبنى.",
+    "أنشط ثلاثة أحياء في أبها (الروابي 1,229 · الزهور 1,206 · الغدير 1,114 صفقة) منشور عدد صفقاتها بلا سعر متر — أكبر ثغرة للمقارنات.",
+    "أحياء مطلوبة لم تُوجد: العزيزة (أبها) · الراقي، النخيل، الأمير سلطان، الموسى (خميس مشيط).",
+    "عدد وقيمة الصفقات على مستوى منطقة عسير غير منشورين — srem و Power BI لوحات تفاعلية لا يقتبسها بحث نصي.",
+    "لا متوسط رسمي لسعر الفيلا في عسير — فقط نطاقات إعلانية (700 ألف–2.5 مليون) وهي أسعار عرض لا صفقات.",
+    "الاستراحات والمزارع: لا نطاق أسعار منشور ولا وسيط لأيٍّ منهما في عسير رغم أنهما فئة مزادات أساسية هناك.",
+    "أثر التطوير السياحي على سعر المتر غير مُقاس في أي مصدر — سردية استثمارية لا بيانات. لا يُعرض كرقم على الخريطة.",
+    "عينات صغيرة: النصب 7 · السد 5 · الموظفين 9 · الوردتين 17 · الخالدية 24 صفقة — وسائطها هشّة إحصائياً وبعض نسب نموها شذوذ عيّنة لا حركة سوق.",
+    "استقلالية المصدر: كل تسعير الأحياء يعود لمجمّع واحد (رغدان) ولم يُقابَل بمصدر وزارة العدل مباشرة. وتعارض داخلي: وسيط أبها 1,591 مقابل 1,411 المستخدم في صفحات الأحياء."
+  ]
+}

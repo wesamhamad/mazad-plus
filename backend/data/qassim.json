@@ -1,0 +1,83 @@
+{
+  "region": "القصيم",
+  "generated": "2026-09-05",
+  "caveat": "أرقام الأحياء وسيط سعر المتر لجميع الصفقات السكنية المسجلة لدى وزارة العدل كما تعرضها منصة رغدان — ليست مفصولة بين أرض ومبنى. الإحداثيات كلها تقديرية.",
+  "cities": [
+    {"city":"بريدة","center":{"lat":26.326,"lng":43.975},"city_median_sar_sqm":706,"total_transactions":64495,
+     "districts":[
+      {"name":"مبروكة","lat":26.385,"lng":43.960,"land_sar_sqm":3066,"transactions":48,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/بريدة"},
+      {"name":"الروضة","lat":26.352,"lng":43.995,"land_sar_sqm":2435,"transactions":93,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/بريدة"},
+      {"name":"النهضة","lat":26.358,"lng":43.958,"land_sar_sqm":2268,"transactions":1042,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/بريدة"},
+      {"name":"الريان","lat":26.365,"lng":43.945,"land_sar_sqm":2187,"transactions":1796,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/بريدة/الريان"},
+      {"name":"الورود","lat":26.345,"lng":43.940,"land_sar_sqm":1853,"transactions":644,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/بريدة"},
+      {"name":"النخيل","lat":26.340,"lng":43.935,"land_sar_sqm":1633,"tier":"متوسط","confidence":"measured","source":"raghdan.sa/ar/market/بريدة/الشماس"},
+      {"name":"الصفراء","lat":26.315,"lng":43.955,"land_sar_sqm":1229,"tier":"متوسط","confidence":"measured","source":"raghdan.sa/ar/market/بريدة/الفايزية"},
+      {"name":"الإسكان","lat":26.305,"lng":43.965,"land_sar_sqm":1100,"tier":"متوسط","confidence":"measured","source":"raghdan.sa"},
+      {"name":"الرحاب","lat":26.375,"lng":43.985,"land_sar_sqm":1000,"transactions":2642,"tier":"متوسط","confidence":"measured","source":"raghdan.sa/ar/market/بريدة"},
+      {"name":"الزيتونة","lat":26.380,"lng":44.005,"land_sar_sqm":800,"tier":"متوسط","confidence":"measured","source":"raghdan.sa"},
+      {"name":"الشماس","lat":26.310,"lng":43.990,"land_sar_sqm":794,"transactions":26,"tier":"متوسط","confidence":"measured","source":"raghdan.sa/ar/market/بريدة/الشماس","note":"تعارض غير محسوم مع رقم 1,117 من ملخص بحث ثانوي"},
+      {"name":"التوفيق","lat":26.285,"lng":43.945,"land_sar_sqm":780,"transactions":2322,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/بريدة"},
+      {"name":"الرابية","lat":26.295,"lng":43.925,"land_sar_sqm":725,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/بريدة/الفايزية"},
+      {"name":"الخليج","lat":26.300,"lng":44.015,"land_sar_sqm":528,"transactions":185,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/بريدة/الخليج","note":"نطاق التداول 12 شهراً 444–678 ر.س/م²"},
+      {"name":"الرمال","lat":26.275,"lng":43.995,"land_sar_sqm":500,"transactions":2210,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/بريدة"},
+      {"name":"الفايزية","lat":26.335,"lng":44.005,"land_sar_sqm":378,"transactions":61,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/بريدة/الفايزية","note":"يُرجّح أن الوسيط مسحوب بصفقات شقق لا أراضٍ"},
+      {"name":"الشقة","lat":26.360,"lng":44.020,"land_sar_sqm":378,"transactions":4494,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/بريدة","note":"أنشط حي في المدينة"}
+     ]},
+    {"city":"عنيزة","center":{"lat":26.090,"lng":43.990},"city_median_sar_sqm":716,"total_transactions":14172,
+     "districts":[
+      {"name":"المنار","lat":26.105,"lng":43.975,"land_sar_sqm":2015,"transactions":1160,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/عنيزة"},
+      {"name":"الوفاء","lat":26.112,"lng":43.985,"land_sar_sqm":1359,"transactions":598,"tier":"راقٍ","confidence":"measured","source":"raghdan.sa/ar/market/عنيزة"},
+      {"name":"الغنام","lat":26.098,"lng":44.005,"land_sar_sqm":988,"transactions":34,"tier":"متوسط","confidence":"measured","source":"raghdan.sa/ar/market/عنيزة"},
+      {"name":"الأشرافية","lat":26.085,"lng":43.965,"land_sar_sqm":907,"transactions":261,"tier":"متوسط","confidence":"measured","source":"raghdan.sa/ar/market/عنيزة"},
+      {"name":"الفاخرية","lat":26.100,"lng":44.015,"land_sar_sqm":866,"transactions":591,"tier":"متوسط","confidence":"measured","source":"raghdan.sa/ar/market/عنيزة"},
+      {"name":"المحمدية","lat":26.075,"lng":43.995,"land_sar_sqm":620,"tier":"متوسط","confidence":"measured","source":"raghdan.sa/ar/market/عنيزة"},
+      {"name":"العونية","lat":26.065,"lng":43.980,"land_sar_sqm":500,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/عنيزة"},
+      {"name":"النزهة","lat":26.095,"lng":43.955,"land_sar_sqm":392,"transactions":16,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/عنيزة/النزهة"},
+      {"name":"الجلدة","lat":26.088,"lng":44.025,"land_sar_sqm":290,"transactions":88,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/عنيزة"},
+      {"name":"الرياضي","lat":26.115,"lng":44.008,"land_sar_sqm":287,"transactions":538,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/عنيزة"},
+      {"name":"الوهلان","lat":26.060,"lng":44.010,"land_sar_sqm":260,"transactions":165,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/عنيزة"},
+      {"name":"الواحة","lat":26.120,"lng":43.960,"land_sar_sqm":237,"transactions":305,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/عنيزة"},
+      {"name":"الراية","lat":26.055,"lng":43.950,"land_sar_sqm":171,"transactions":84,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/عنيزة"}
+     ]},
+    {"city":"الرس","center":{"lat":25.869,"lng":43.497},"city_median_sar_sqm":473,"total_transactions":8419,
+     "districts":[
+      {"name":"وادي الرمة","lat":25.885,"lng":43.505,"land_sar_sqm":514,"tier":"متوسط","confidence":"measured","source":"raghdan.sa/ar/market/الرس"},
+      {"name":"المنار","lat":25.875,"lng":43.485,"land_sar_sqm":487,"tier":"متوسط","confidence":"measured","source":"raghdan.sa/ar/market/الرس"},
+      {"name":"النخيل","lat":25.860,"lng":43.505,"land_sar_sqm":451,"tier":"متوسط","confidence":"measured","source":"raghdan.sa/ar/market/الرس"},
+      {"name":"النهضة","lat":25.878,"lng":43.515,"land_sar_sqm":431,"tier":"متوسط","confidence":"measured","source":"raghdan.sa/ar/market/الرس"},
+      {"name":"المروج","lat":25.855,"lng":43.480,"land_sar_sqm":279,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/الرس"},
+      {"name":"الملك عبدالعزيز","lat":25.865,"lng":43.475,"land_sar_sqm":247,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/الرس"},
+      {"name":"التعليم","lat":25.850,"lng":43.500,"land_sar_sqm":137,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/الرس"},
+      {"name":"منة","lat":25.890,"lng":43.470,"land_sar_sqm":130,"tier":"اقتصادي","confidence":"measured","source":"raghdan.sa/ar/market/الرس"}
+     ]}
+  ],
+  "indicators": [
+    {"key":"price_index","label":"الرقم القياسي لأسعار العقارات — القصيم","value":"91.9 نقطة (أساس 2023=100)","period":"الربع الأول 2026","confidence":"measured","source":"الهيئة العامة للإحصاء عبر أرقام"},
+    {"key":"yoy_change","label":"التغيّر السنوي — القصيم","value":"−5.1%","period":"ر١ 2026 مقابل ر١ 2025","confidence":"measured","source":"الهيئة العامة للإحصاء عبر أرقام"},
+    {"key":"national_index","label":"المؤشر الوطني للمقارنة","value":"103.3 نقطة · −1.6% سنوياً","period":"الربع الأول 2026","confidence":"measured","source":"stats.gov.sa"},
+    {"key":"agricultural_yoy","label":"الأراضي الزراعية — التغيّر الوطني","value":"+11.8% (القطاع الوحيد الصاعد بقوة)","period":"الربع الأول 2026","confidence":"measured","source":"الهيئة العامة للإحصاء"},
+    {"key":"transactions_count","label":"صفقات القصيم","value":"3,200 صفقة (9.23% من المملكة، المرتبة الرابعة)","period":"الربع الثاني 2026","confidence":"measured","source":"وزارة العدل عبر جريدة الوطن"},
+    {"key":"transactions_2025","label":"صفقات القصيم — سابقاً","value":"5,619 عقاراً بـ2.33 مليار ر.س (+85.4%)","period":"الربع الأول 2025","confidence":"measured","source":"propertymiddleeast.com"}
+  ],
+  "sources": [
+    {"name":"الهيئة العامة للإحصاء — الرقم القياسي لأسعار العقارات ر١ 2026","url":"https://www.stats.gov.sa/ar/w/real-estate-price-index-q1-2026"},
+    {"name":"أرقام — تفصيل المؤشر بالمناطق","url":"https://www.argaam.com/ar/article/articledetail/id/1897829"},
+    {"name":"جريدة الوطن — 34.7 ألف صفقة عقارية ر٢ 2026 (بيانات وزارة العدل)","url":"https://www.alwatan.com.sa/article/1184226"},
+    {"name":"رغدان — سوق بريدة/عنيزة/الرس (بيانات وزارة العدل)","url":"https://raghdan.sa/ar/market/"},
+    {"name":"وزارة العدل — تقارير الصفقات العقارية (Power BI)","url":"https://www.moj.gov.sa/ar/OpenData/PowerBIReport/Pages/BIReportRealestate.aspx"},
+    {"name":"الهيئة العامة للعقار — منصة المؤشرات العقارية","url":"https://rei.rega.gov.sa/"},
+    {"name":"البورصة العقارية — وزارة العدل","url":"https://srem.moj.gov.sa/"}
+  ],
+  "gaps": [
+    "كل الإحداثيات تقديرية من معرفة عامة — لم تُستخرج من مصدر جغرافي رسمي، ويجب التحقق قبل استخدام إنتاجي.",
+    "تصنيف tier استنتاجي مبني على ترتيب سعر المتر، لا تصنيف رسمي منشور.",
+    "سعر متر البناء (built) غير متوفر لأي حي في القصيم — لا مصدر يفصله عن سعر متر الأرض.",
+    "أرقام رغدان وسيط لكل الصفقات السكنية (أراضٍ + فلل + شقق) لا أراضٍ صافية — تنخفض مضلِّلةً في الأحياء كثيفة الشقق.",
+    "تناقض داخلي في رغدان: بريدة 706 مقابل 666، وعنيزة 716 مقابل 634 — غالباً اختلاف نافذة زمنية.",
+    "قيمة صفقات القصيم بالريال لر٢ 2026 غير منشورة — العدد فقط.",
+    "لا متوسط منشور لسعر الفيلا في القصيم من أي مصدر رسمي.",
+    "لا سعر منشور للمتر الزراعي في القصيم رغم أنه الأسرع نمواً وطنياً وأكثرها صلة بالمزادات هناك — أهم فجوة، وتستحق استخراجاً مباشراً من ملف وزارة العدل المفتوح.",
+    "منصتا REGA REI و srem.moj.gov.sa تطبيقات JavaScript — لا يمكن استخراج أرقامها بجلب HTML، تحتاج متصفحاً أو تنزيل CSV.",
+    "لا تقرير سوق احترافي (JLL/Knight Frank/CBRE) يغطي القصيم بمستوى الحي."
+  ]
+}

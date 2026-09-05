@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: mazad-plus
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: MAZAD_AUTOBOOT
+        value: "1"
